@@ -1,0 +1,1 @@
+console.log(obj === void 0);
