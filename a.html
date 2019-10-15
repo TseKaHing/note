@@ -12,21 +12,22 @@
 
 <body>
 
-  <div id="t"></div>
 
-  <input type="text" id="text" value="">
-
-  <input type="button" id="s" value="write" onclick="test()">
 
   <script>
 
-    function test() {
 
-      var str = document.getElementById("text").value;
 
-      document.getElementById("t").innerHTML = "<a href='" + str + "'>testlink</a>";
-
+    var a = 1;
+    var obj = {
+      a: 10,
+      fn: () => {
+        console.log(this.a);
+      }
     }
+    obj.fn()
+
+
 
   </script>
 
