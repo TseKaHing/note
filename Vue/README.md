@@ -38,3 +38,8 @@ mounted，此时 html 已经渲染出来，可以操作 DOM 结点
 5. React 重度依赖于 JSX 语法，Vue 使用模板 template 搭建应用，相比之下 Vue 可以在模板和渲染函数之间进行弹性选择
 
 ## 虚拟 DOM 和 diff 算法
+
+### 什么是虚拟 DOM？
+
+虚拟 DOM 可以看作是使用 JavaScript 模拟 DOM 结构的树形结构，这个树结构包含整个 DOM 结构的信息
+使用 render 方法渲染的是虚拟 DOM
