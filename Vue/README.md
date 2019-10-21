@@ -43,3 +43,21 @@ mounted，此时 html 已经渲染出来，可以操作 DOM 结点
 
 虚拟 DOM 可以看作是使用 JavaScript 模拟 DOM 结构的树形结构，这个树结构包含整个 DOM 结构的信息
 使用 render 方法渲染的是虚拟 DOM
+
+### 为什么需要虚拟 DOM？
+
+操作 DOM 很耗资源，而操作 js 很高效，所以在操作 DOM 之间多加一层虚拟 DOM，建立虚拟 DOM，
+
+比如说一个操作中有十次更新 DOM 的操作，虚拟 DOM 不会立即操作 DOM，而是将这十次更新的 diff 内容保存到本地一个 JS 对象，最终将这个 JS 对象一次性 attch 到 DOM 树上
+
+使用 document.CreateElement 和 document.CreateTextNode 创建的就是真实结点
+
+旧的虚拟 DOM=>旧的真实 DOM，新的虚拟 DOM 和旧的真实 DOM 做 diff，生成新的真实 DOM
+
+### 实现步骤
+
+1. 将 js 对象模拟成 DOM
+2. 把此虚拟 DOM 转成真实 DOM 并插入到页面中
+3. 如果有事件发生修改了虚拟 DOM
+4. 比较两棵虚拟 DOM 树的差异，得到差异对象
+5. 把差异对象应用到真实的 DOM 树上
