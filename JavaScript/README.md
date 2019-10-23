@@ -34,3 +34,8 @@ a 函数中的 b 函数就是闭包了
 2. 把原对象的 prototype 赋值给新的对象的'_proto_' obj._proto_ = originObj.prototype
 3. 让原对象的 this 指向新的对象 var result = originObj.call(obj)
 4. 判断返回值类型，将返回值转换成对象类型 return typeof result === 'obj'? result : obj
+
+## JavaScript 单线程模型怎样去处理并发操作？
+
+JavaScript 是单线程模型，它利用事件回调的方式非阻塞 I/O
+JavaScript 会先执行同步任务（进入浏览器主线程），再执行异步任务（不进入主线程，而进入任务队列），异步任务会被加入到任务队列（只有任务队列通知主线程某个异步任务可以执行，该异步任务才可以进入主线程执行）
