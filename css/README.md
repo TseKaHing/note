@@ -2,6 +2,11 @@
 
 ！important > 行内样式(style 属性) > ID > 类、伪类、属性 > 标签名 > 继承 > 通配符(\*)
 
+## display 和 position 的取值。
+
+display 的取值有：table/inline/block/inline-block（当时就说了这些，还有经常用到的 none，table-cell 这些一紧张忘记说了）；
+position 的取值有：fixed/relative/absolute（static 忘记说了）。
+
 ## link 和@import 的异同
 
 相同点：都可以引入 css 样式

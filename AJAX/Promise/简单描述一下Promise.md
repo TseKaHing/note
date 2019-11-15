@@ -17,3 +17,7 @@
 
 1. 为了解决地狱回调
 2. Promise 可以支持多个并发请求，获取并发请求中的数据
+
+## Promise 链式调用如何中断
+
+当 Promise 状态从 pending 状态转换成 fulfill 或者 reject 的时候，then 调用结束，所以我们我们可以强制把 Promise 转成 fulfill 或者 resolve 状态

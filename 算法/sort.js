@@ -145,10 +145,17 @@ function quickSort(arr) {
     } else {
       right.push(arr[i])
     }
-
   }
   return quickSort(left).concat(std, quickSort(right))
 }
 
 // quickSort(arr)
 // console.log(arr);
+
+// 大顶堆 小顶堆
+
+
+// 桶排序
+
+
+// 基数排序                                      
