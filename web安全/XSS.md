@@ -45,4 +45,7 @@
 如何防御？
 
 1. 输出检查，对输出进行转义
+   1.1 将 HTML 实体转化为相应的实体编号 `<` 转换成 &lt;
+   2.2 JavaScript 编码 在往 JavaScript 代码里插入数据的时候，只有一种情况是安全的，那就是对不可信数据进行 JavaScript 编码 并且只把这些数据放到使用引号包围起来的值部分（data value）之中，除了上面的那些转义之外，还要附加上下面的转义 `\` 转成 `\\` `/` 转成 `\/` `;` 转成`；`(全角;)
 2. 一些主流浏览器本身有对抗 XSS 的措施，比如 IE8 的 XSS filter
+3. Http Only cookie 许多 XSS 攻击的目的就是为了获取用户的 cookie，将重要的 cookie 标记为 http only，这样的话当浏览器向服务端发起请求时就会带上 cookie 字段，但是在脚本中却不能访问 cookie，这样就避免了 XSS 攻击利用 js 的  document.cookie 获取 cookie
