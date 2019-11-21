@@ -30,3 +30,5 @@ console.log(result);
 
 testResult()
 ```
+
+## async & await 原理

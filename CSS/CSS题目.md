@@ -39,16 +39,19 @@ rpx、rem、vw，vh（小程序）
 1. absolute
    生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。
    元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
-
 2. fixed
    生成绝对定位的元素，相对于浏览器窗口进行定位。
    元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
-
 3. static
    默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）
-
 4. inherit
    规定应该从父元素继承 position 属性的值
 5. relative
    生成相对定位的元素，相对于其正常位置进行定位。
    因此，"left:20" 会向元素的 LEFT 位置添加 20 像素
+
+## 垂直居中布局
+
+1. flex 布局 设置父元素 display: flex; 子元素设置 justify-content: center;(水平居中) align-items:center;(垂直居中)
+2. position: absolute; top: 50%; left: 50%; margin-left: 盒子宽度/2; margin-top: 盒子高度/2;
+3. position: absolute; margin: 0 auto; top: 50%; margin-top: 盒子高度/2；

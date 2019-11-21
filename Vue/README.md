@@ -6,7 +6,7 @@
 为什么 data 需为 function？
 data 为一个 function，通过 return 返回对象的拷贝，致使每个实例都有自己独立的对象，实例之间可以互不影响地改变 data 属性值
 
-## Vue 声明周期
+## Vue 生命周期
 
 1. beforeCreated 生成\$options 选项，并给实例添加生命周期相关属性
 2. created 初始化并注入相关操作，从\$options 选项获取数据选项（vm.\$options.data）,给数据添加"观察器"对象及创建
@@ -18,7 +18,7 @@ data 为一个 function，通过 return 返回对象的拷贝，致使每个实�
 7. beforeDestory 实例被销毁前调用，也就是说在这个阶段还是可以调用实例的
 8. destoryed 实例被销毁后调用，所以的时间监听已被移除，子实例被销毁
 
-## Vue 在哪个声明周期进行数据交互？
+## Vue 在哪个生命周期进行数据交互？
 
 mounted，此时 html 已经渲染出来，可以操作 DOM 结点
 
@@ -36,8 +36,6 @@ mounted，此时 html 已经渲染出来，可以操作 DOM 结点
 3. React 开发团队更加成熟，Vue 发展速度更快
 4. React 适合做跨平台移动开发，主要依赖于 React Native，web 端和移动端通吃
 5. React 重度依赖于 JSX 语法，Vue 使用模板 template 搭建应用，相比之下 Vue 可以在模板和渲染函数之间进行弹性选择
-
-## 虚拟 DOM 和 diff 算法
 
 ### 什么是虚拟 DOM？
 
@@ -61,3 +59,17 @@ mounted，此时 html 已经渲染出来，可以操作 DOM 结点
 3. 如果有事件发生修改了虚拟 DOM
 4. 比较两棵虚拟 DOM 树的差异，得到差异对象
 5. 把差异对象应用到真实的 DOM 树上
+
+## 虚拟 DOM 和 diff 算法
+
+## Vue 路由原理，如何去实现一个路由插件
+
+挂载虚拟 DOM
+
+## Vue 的响应式原理中 Object.defineProperty 有什么缺陷？为什么在 Vue3.0 采用了 Proxy，抛弃了 Object.defineProperty？
+
+Object.defineProperty 无法监控到数组下标的变化，导致通过数组下标添加元素，不能实时响应；
+Object.defineProperty 只能劫持对象的属性，从而需要对每个对象，每个属性进行遍历，如果，属性值是对象，还需要深度遍历。Proxy 可以劫持整个对象，并返回一个新的对象。
+Proxy 不仅可以代理对象，还可以代理数组。还可以代理动态增加的属性。
+
+## data 和 computed 都可以实现双线数据绑定，那么他们的本质区别是什么？
