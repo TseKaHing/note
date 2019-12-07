@@ -1,3 +1,28 @@
+## nodejs 简介
+`nodejs`是一种`JavaScript`的运行环境，`nodejs`集成了`npm`包管理工具
+
+## nodejs 安装
+1. 进入`nodejs`官网`https://nodejs.org/en/`，选择下载版本，推荐安装最新的稳定版本
+2. 使用`node -v`命令可以查看`nodejs`版本，查看成功，即安装成功
+
+## cnpm
+`cnpm`是淘宝`npm`镜像
+`cnpm`下载速度较`npm`下载速度快，假如`npm`下载失败，可以尝试切换到`cnpm`下载
+### 安装cnpm
+`npm install -g cnpm --registry=https://registry.npm.taobao.org`
+
+## nrm
+`nrm`是`npm`的镜像源管理工具，有时候国外资源太慢，使用这个就可以快速地在 `npm` 源间切换
+
+## nrm 安装
+`npm install -g nrm`
+
+## 查看 nrm 源
+`nrm ls`
+
+## 切换 nrm 源
+`nrm use taobao`
+
 ## Koa2 和 Express 的区别？
 
 1. Koa2 相比 express 更加精巧
