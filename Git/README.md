@@ -15,7 +15,7 @@ git config --global user.email "xiejiaxing@forchange.tech"(邮箱)
 3. 获取上一步创建的远程仓库的url，并在本地项目设置远程仓库的url，·`git remote add origin url`
 4. 首次提交需要先从远程仓库拉取项目`git pull --rebase origin master`
 5. `git add .`将所有修改过的工作文件提交暂存区
-6. `git comnit -m "msg"`将暂存区的文件提交给本地仓库
+6. `git commit -m "msg"`将暂存区的文件提交给本地仓库
 7. `git push origin master`将本地仓库中上传到远程仓库
 
 ## 新建一个本地分支
