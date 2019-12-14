@@ -2,9 +2,9 @@
 
 1. Promise 是异步编程的一种解决方案
 2. Promise 可以解决异步回调的问题，但 Promise 本身是同步的
-3. Promise 本质上一个构造函数，它可以获取异步操作的消息
+3. Promise 本质上是一个构造函数，它可以获取异步操作的消息
 4. 从本意上将，它是一种承诺，承诺它经过一段时间之后会给你一个结果
-5. Promise 用三种状态，pending，fulfiled，rejected
+5. Promise 有三种状态，pending，fulfiled，rejected
 6. Promise 状态一旦改变，就不会再改变
 7. 创建 Promise 实例后，它会立即执行
 8. Promise 自身上有 all()，resolve()，reject()方法，原型上有 then(),catch()方法
