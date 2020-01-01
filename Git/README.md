@@ -10,9 +10,9 @@ git config --global user.email "xiejiaxing@forchange.tech"(邮箱)
 `git --version`
 
 ## 使用 git 将本地文件上传到远程仓库
-1. `git init`在本地文件根目录初始化该项目的git
+1. `git init`在本地文件根目录初始化该项目的`git`
 2. 创建一个远程仓库
-3. 获取上一步创建的远程仓库的url，并在本地项目设置远程仓库的url，·`git remote add origin url`
+3. 获取上一步创建的远程仓库的`url`，并在本地项目设置远程仓库的`url`，`git remote add origin url`
 4. 首次提交需要先从远程仓库拉取项目`git pull --rebase origin master`
 5. `git add .`将所有修改过的工作文件提交暂存区
 6. `git commit -m "msg"`将暂存区的文件提交给本地仓库
@@ -22,7 +22,7 @@ git config --global user.email "xiejiaxing@forchange.tech"(邮箱)
 `git checkout -b feature/mine`
 ## 查看分支状态
 `git branch`
-将新建的本地分支push到远程服务器，远程分支与本地分支同名(也可以随便取)
+将新建的本地分支`push`到远程服务器，远程分支与本地分支同名(也可以随便取)
 `git push origin feature/mine:feature/mine`
 ## 查看所有分支
 `git branch -a`
@@ -38,7 +38,7 @@ git config --global user.email "xiejiaxing@forchange.tech"(邮箱)
 
 ## shadowsocks 配置流程
 1. 进入`shadowsocks`下载地址https://help.fengye.la/replay.html，里面有支持`Windows，Mac OS X，Linux，Android，iOS`的客户端
-2. 以Mac操作系统为例，选择下载`Mac OS X`客户端，按照`Mac OS X`里面的教程https://help.fengye.la/replay/sub_mac.html操作即可
+2. 以`Mac`操作系统为例，选择下载`Mac OS X`客户端，按照`Mac OS X`里面的教程https://help.fengye.la/replay/sub_mac.html操作即可
 
 ## issues
 1. 按照教程操作，需要购买服务，这里提供几个稳定的服务器节点，将订阅地址改成以下地址之一即可使用
