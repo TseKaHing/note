@@ -137,6 +137,35 @@ transform 属于合成属性，对合成属性进行动画，浏览器会为元�
 因为 scroll 事件的发生很活跃，每次 scroll 事件的发生都会更新数据，导致滚动的时候有时候会出现闪一下的情况（跟 FPS 有关）
 使用 requestAnimationFrame API 能够使得滚动事件的跟 CPU 的 FPS 同步，即约等于 16.7ms 才去执行一次数据的更新
 
+## 高阶函数 函数的柯里化 add(2,3,4...)和 add(2)(3)(4)...都输出相同结果的解决方案
+
+```
+function sum(...args) {
+  if ([...args].length == 1) {
+    let sum2 = [...args][0];
+    var tmp = function (y) {
+      sum2 += y;
+      return tmp;
+    }
+    tmp.valueOf = function () {
+      return sum2;
+    }
+    return tmp;
+  }
+  else {
+    let sum1 = 0;
+    for (var i = 0; i < [...args].length; i++) {
+      sum1 += [...args][i];
+    }
+    return sum1
+  }
+}
+
+console.log(sum()); //outPut1 0
+console.log(sum(2, 3, 4));//outPut1 9
+console.log(sum(2)(3)(4)(5).valueOf());//outPut1 5//outPut1 9//outPut1 14
+```
+
 面试标准
 前端技术能力
 沟通能力
