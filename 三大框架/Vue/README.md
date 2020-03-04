@@ -8,6 +8,7 @@ data 为一个 function，通过 return 返回对象的拷贝，致使每个实�
 
 ## Vue 生命周期
 
+<!--
 1. beforeCreated 生成\$options 选项，并给实例添加生命周期相关属性
 2. created 初始化并注入相关操作，从\$options 选项获取数据选项（vm.\$options.data）,给数据添加"观察器"对象及创建
    定义 getter、setter 存储器属性，在实例创建后被调用，该阶段完成 data，methods 等的初始化，但 DOM 还没挂载
@@ -16,7 +17,16 @@ data 为一个 function，通过 return 返回对象的拷贝，致使每个实�
 5. beforeUpdate vm.$data更新后，虚拟DOM重新渲染之前被调用，此时可以修改 vm.$data，并不会触发附加的冲渲染过程
 6. updated 虚拟 DOM 重新渲染后调用，若再次修改 vm.\$data，会再次触发 beforeUpdate、updated，进入死循环
 7. beforeDestory 实例被销毁前调用，也就是说在这个阶段还是可以调用实例的
-8. destoryed 实例被销毁后调用，所以的时间监听已被移除，子实例被销毁
+8. destoryed 实例被销毁后调用，所以的时间监听已被移除，子实例被销毁 -->
+
+1. beforeCreate 数据、方法初始化之前
+2. created 数据，方法被初始化之后，但未挂载 dom
+3. beforeMount 挂载 dom 之前调用，首次调用 render 函数生成虚拟 dom
+4. mounted dom 挂载完成并成功渲染到页面，可以进行相关 dom 操作
+5. beforeUpdate 数据有更新时调用
+6. updated 虚拟 dom 以最小代价重新被渲染
+7. beforeDestory 实例被销毁前被调用
+8. destoryed 组件销毁后调用
 
 ## Vue 在哪个生命周期进行数据交互？
 

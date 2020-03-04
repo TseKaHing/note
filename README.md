@@ -205,6 +205,30 @@ Object.freeze() 冻结对象（不能添加、删除和修改）
 
 ## 事件代理（事件委托）
 
+## github 授权登录
+
+流程：
+
+1. 通过触发器跳转到 github 授权页面，同时传入 client_id（必须）等参数
+2. 用户同意授权之后，返回在 github 上设置的 callback url，并在这个 url 上携带 code
+3. 前端获取到 code 之后再传给服务端，服务端通过传入 client_id，code，client_secret（这三个是必须的）参数，获取到 access_token
+4. 通过 access_token 访问 github 特定的 url，就可以获取到 github 上的一些个人信息
+
+## Vue 路由守卫
+
+- 1.  导航被触发
+- 2.  在失活的组件（即将离开的页面组件）里调用离开守卫 beforeRouteLeave
+- 3.  调用全局的前置守卫 beforeEach
+- 4.  在重用的组件里调用 beforeRouteUpdate
+- 5.  调用路由独享的守卫 beforeEnter
+- 6.  解析异步路由组件
+- 7.  在被激活的组件（即将进入的页面组件）里调用 beforeRouteEnter
+- 8.  调用全局的解析守卫 beforeResolve
+- 9.  导航被确认
+- 10. 调用全局的后置守卫 afterEach
+- 11. 触发 DOM 更新
+- 12. 用创建好的实例调用 beforeRouterEnter 守卫里传给 next 的回调函数
+
 面试标准
 前端技术能力
 沟通能力

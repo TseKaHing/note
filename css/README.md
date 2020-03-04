@@ -34,3 +34,10 @@ BFC 作用：
 1. 利用 BFC 避免外边距折叠
 2. 清楚内部浮动（撑开高度）
 3. 原理：触发父 div 的 BFC 属性，使下面的子 div 都处在
+
+bfc 触发的条件：
+
+1. float 不为 none
+2. postion 不为 static 或 relative
+3. overflow 不为 visible
+4. display 为 inline-block、table-cell、flex、table-caption 或者 inline-flex
