@@ -28,7 +28,7 @@ function saveFlow(fn, delay) {
     }
     timer = setTimeout(function () {
       fn.apply(_this, args)
-      var timer = null
+      timer = null
     }, delay)
 
   }
