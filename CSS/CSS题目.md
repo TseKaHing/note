@@ -55,3 +55,12 @@ rpx、rem、vw，vh（小程序）
 1. flex 布局 设置父元素 display: flex; 子元素设置 justify-content: center;(水平居中) align-items:center;(垂直居中)
 2. position: absolute; top: 50%; left: 50%; margin-left: 盒子宽度/2; margin-top: 盒子高度/2;
 3. position: absolute; margin: 0 auto; top: 50%; margin-top: 盒子高度/2；
+
+## css 盒模型， box-sizing
+
+css 盒模型 ，主要分为 W3C 标准盒模型，以及 IE 标准盒模型
+css 主要组成部分，content、padding、border，margin
+box-sizing 取值
+
+- content-box -- 表示为 W3C 标准盒模型，width = content
+- border-box -- 表示为 IE 标准盒模型，width = content + padding + border

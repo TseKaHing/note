@@ -167,7 +167,7 @@ Function.prototype.myCall = function(funcCtx) {
     // this指被调用的函数
     console.log('this = ',this)
     if(typeof this != 'function') {
-        throw new TypeError('Erorr')
+        throw new TypeError('Error')
     }
     let ctx = funcCtx || global
     console.log('arguemnets = ', arguments)
