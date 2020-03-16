@@ -13,6 +13,10 @@ ES6 新增数据类型: Symbol
 bind(一般用作兼容，有些浏览器不兼容 call/apply)、call、apply
 假设要改变 fn 内部的 this 指向，指向 obj，fn.call(obj)或者 fn.apply(obj)
 
+## event.currentTarget 与 event.target
+
+event.currentTarget 指向事件所绑定的元素，而 event.target 始终指向事件发生时的元素
+
 ### call 和 apply 的区别？
 
 1.参数
