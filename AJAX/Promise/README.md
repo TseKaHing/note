@@ -32,3 +32,11 @@
 
 1. 并行：多个进程同时可以运行，互不影响（一个老师同时辅导多个学生）
 2. 并发：多个进程同时发生，但需要在这多个进程里面相互切换（一个老师在辅导 A 学生，A 学生在想问题的时候，老师同时辅导 B 同学）
+
+## 用 promise 写一个 delay 函数
+
+```
+const delay = (ms) => new Promise(
+  (resolve) => setTimeout(resolve, ms)
+)
+```

@@ -4,8 +4,8 @@
 
 ## display 和 position 的取值。
 
-display 的取值有：table/inline/block/inline-block（当时就说了这些，还有经常用到的 none，table-cell 这些一紧张忘记说了）；
-position 的取值有：fixed/relative/absolute（static 忘记说了）。
+display 的取值有：table/inline/block/inline-block/none，table-cell
+position 的取值有：fixed/relative/absolute/static
 
 ## link 和@import 的异同
 

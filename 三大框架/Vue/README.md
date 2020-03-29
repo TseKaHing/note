@@ -83,3 +83,11 @@ Object.defineProperty 只能劫持对象的属性，从而需要对每个对象�
 Proxy 不仅可以代理对象，还可以代理数组。还可以代理动态增加的属性。
 
 ## data 和 computed 都可以实现双线数据绑定，那么他们的本质区别是什么？
+
+## vue-router 实现原理
+
+挂载 dom
+
+1. hash
+2. history
+3. abstract
