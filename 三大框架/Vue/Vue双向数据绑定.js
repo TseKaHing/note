@@ -3,10 +3,9 @@ class Vue {
     this.data = options.data
     this.observer(this.data)
   }
-  observer(val) {
-    Object.keys(val).forEach(item => {
-      console.log(val[item]);
-      this.defineReactive(val, item, val[item])
+  observer(obj) {
+    Object.keys(val).forEach(key => {
+      this.defineReactive(obj, key, obj[key])
     })
   }
   defineReactive(obj, key, val) {
