@@ -81,8 +81,6 @@ HTTP 2.0 相比 HTTP 1.1 极大地提升了性能
 5. https 握手更费事，也更耗电
 6. https 缓存不如 http 高效，https 会增加数据开销
 
-## HTTPS 握手过程
-
 ## HTTPS 工作原理
 
 1. 客户端 --> 服务端
@@ -201,6 +199,78 @@ PS：FTP、TELNET 等本质上不安全（明文传输口令和数据），容�
 `500` `Internal Server Error` 服务器内部错误，无法完成请求
 `502` `Bad Gateway` 作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的请求
 
+### 浏览器缓存的解决方案
+
+1. 为静态资源后添加时间戳
+2. 添加 cache-control 字段
+
+## 浏览器的缓存机制？
+
+浏览器缓存主要指 HTTP 缓存
+
+强制缓存优先于协商缓存进行，若强制缓存(Expires 和 Cache-Control)生效则直接使用缓存，若不生效则进行协商缓存(Last-Modified / If-Modified-Since 和 Etag / If-None-Match)，协商缓存由服务器决定是否使用缓存，若协商缓存失效，那么代表该请求的缓存失效，重新获取请求结果，再存入浏览器缓存中；生效则返回 304，继续使用缓存
+
+## 浏览器缓存的优缺点
+
+### 优点
+
+1. 提升页面加载速度
+2. 缩短网页请求资源的距离
+3. 减少延迟
+4. 缓存文件可以重复利用，可以减少带宽，降低网络负荷
+
+### 缺点
+
+1. 从后端获取到的数据不能及时更新到缓存
+
+## cookie、sessionStorage、localStorage 的区别
+
+1. cookie 存储在浏览器，并伴随着浏览器请求一起发送到服务端，大小 4k，有过期期限
+2. sessionStorage 存储在客户端，属于 webStorage，大小 8m，sessionStorage 在一个会话期间内存活，关闭浏览器的会话就会自动消失
+3. localStorage 也存储在客户端，属于 webStorage、大小 8m，localStorage 是持久化存储在客户端，如果用户不手动清除浏览器缓存，localStorage 就不会消失
+
+## cookie 和 session 的区别
+
+1. cookie 存放在客户的浏览器中，session 存放在服务器
+2. cookie 不安全，别人可以分析存放在本地的 cookie 并进行 cookie 欺骗，考虑到安全应该使用 session
+3. session 会在一定时间内保存在服务器上，当访问增多时，会比较占用服务器性能，考虑到减轻服务器的性能，应该使用 cookie
+4. 单个 cookie 保存的数据大小不能超过 4k，很多浏览器都限制一个站点最多保存 20 个 cookie
+
+## UserData
+
+UserData 是 IE 浏览器下的输出存储方式
+
+### 缺点
+
+1. 对 HTML5 支持性不好
+2. 只适用于 IE 浏览器
+3. UserData 将数据以 XML 的方式存储在客户端，XML 存储性能消耗较大
+
+### 优点
+
+1. 数据存储大小比 cookie 大，但也没多大，UserData 允许每个文档最多存 128kb 的数据，每个域名最多存 1mb 的 数据
+
+## indexedDB
+
+indexedDB 是浏览器提供的本地数据库，indexedDB 允许存储大量数据，indexedDB 不属于关系型数据库，更接近非关系型数据库
+
+### 特点：
+
+1. 键值对存储
+2. 异步
+3. 支持事务处理
+4. 同源限制（不能跨域）
+5. 存储空间大
+6. 支持二进制存储
+
+## 多个页面如何进行通信
+
+使用 cookie，使用 localStorage、sessionStorage，使用 web worker
+
+## web worker
+
+web worker 是 html5 提出的，允许 JavaScript 创建多个线程，但是新创建的这些线程作为子线程并完全受主线程的控制，并且不得操作 dom，本质上还是单线程，于是，我们就可以把一些费事的任务交给 web worker 创建的子线程在后台完成，而前台页面依然可以处理用户的响应
+
 ### 304 缓存过程（除了 Etag 还有什么）
 
 304 状态码
@@ -266,3 +336,42 @@ PS：FTP、TELNET 等本质上不安全（明文传输口令和数据），容�
    在性能上，Etag 要逊于 Last-Modified
    Last-Modified 只需要记录时间，而 Etag 需要服务器通过算法来计算出一个 hash 值
    在优先级上，服务器校验优先考虑 Etag
+
+## 同源策略
+
+协议、域名、端口号相同
+
+## 非同源受到的限制
+
+1. 不能读取 cookie （如我在自己的站点无法读取博客园用户的 cookie）
+2. dom 无法获得
+3. ajax 请求不能发送
+
+## 跨域
+
+域 A 去访问域 B 的资源
+由于同源策略的限制，XmlHttpRequest 只允许请求当前源（域名、协议、端口）的资源。
+
+### JSONP 跨域（json with padding）
+
+原理：动态添加一个<script></script>标签，而<script></script>标签的 src 属性是没有跨域限制的，这样一来，这种跨域方式就与 XmlHttpRequest 无关
+如果要进行跨域请求，我们可以通过使用 html 的<script></script>标记进行跨域请求，并在响应中执行返回的 script 代码，其中可以使用 json 传递 JavaScript 对象，这种方式成为 jsonp
+缺点：JSONP 只可以使用 GET 方式提交
+
+### proxy 代理
+
+将非同源转换成同源
+
+原理：
+
+1. 客户端发送请求时，不直接发送到服务器，而是先代理到中间层，再将请求发送到服务器
+2. 同理，当服务端返回数据时，也是先代理到中间层，再发送到客户端
+
+### CORS 跨域
+
+CORS（Cross-Origin Resource Sharing）跨域资源共享
+CORS 是一种在服务端进行跨域的方式，浏览器一旦发起 AJAX 请求，服务端就会给请求头添加一个附加的头部信息，从而实现跨域
+
+### postMessage 跨域
+
+postMessage 属于 window API，但是 postMessage 这种方式不是客户端和服务端之间的跨域，而是两个客户端之间的跨域
